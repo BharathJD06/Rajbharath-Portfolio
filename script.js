@@ -792,7 +792,7 @@ TRANSMISSION CHANNELS:
   • Email: <span class="term-hl">bharathathlete81@gmail.com</span>
   • LinkedIn: <a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/" target="_blank" style="color:#00c6ff">rajbharath-paramasivan</a>
   • GitHub: <a href="https://github.com/BharathJD06" target="_blank" style="color:#00c6ff">github.com/BharathJD06</a>
-  • Live Portal: <a href="https://rajbharath-mda-portfolio.netlify.app" target="_blank" style="color:#00c6ff">rajbharath-mda-portfolio.netlify.app</a>
+  • Current Base: <span class="term-hl">Niagara Falls, ON, Canada</span>
     `,
     hire: () => `
 CANDIDATE DISPOSITION:

@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,100:00c6ff&height=200&section=header&text=Rajbharath%20Paramasivan&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Business%20%26%20Data%20Analytics%20Professional&descSize=18&descAlignY=58&animation=fadeIn" width="100%"/>
 
-<a href="https://rajbharath-mda-portfolio.netlify.app">
+<a href="https://bharathjd06.github.io/Rajbharath-Portfolio/">
   <img src="https://img.shields.io/badge/🌐_Portfolio-Visit_Website-0A66C2?style=for-the-badge&logoColor=white" alt="Portfolio"/>
 </a>
 <a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/">
@@ -308,7 +308,7 @@ Clustering & Segmentation
 | 13 | **🏠 Real Estate Business Analysis** | Python, Power BI | Property market trends, valuation modeling, and investment insights |
 | 14 | **📉 Mobile Sales & Forecasting** | Python, Time Series | ARIMA/Prophet-based forecasting for mobile device sales trends |
 
-> 🌐 **[View full project portfolio with visuals →](https://rajbharath-mda-portfolio.netlify.app)**
+> 🌐 **[View full project portfolio with visuals →](https://bharathjd06.github.io/Rajbharath-Portfolio/)**
 
 ---
 
@@ -386,8 +386,8 @@ I'm always open to discussing **data analytics opportunities**, **collaborative 
 <a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/">
   <img src="https://img.shields.io/badge/LinkedIn-Let's_Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
-<a href="https://rajbharath-mda-portfolio.netlify.app">
-  <img src="https://img.shields.io/badge/Portfolio-View_My_Work-00c6ff?style=for-the-badge&logo=netlify&logoColor=white"/>
+<a href="https://bharathjd06.github.io/Rajbharath-Portfolio/">
+  <img src="https://img.shields.io/badge/Portfolio-View_3D_Portfolio-00c6ff?style=for-the-badge&logo=githubpages&logoColor=white"/>
 </a>
 <a href="mailto:bharathathlete81@gmail.com">
   <img src="https://img.shields.io/badge/Email-Drop_a_Message-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>

@@ -30,8 +30,8 @@
   --border-glow: rgba(0, 198, 255, 0.35);
   --border-active: rgba(0, 198, 255, 0.7);
 
-  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Poppins', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --nav-height: 80px;
@@ -2280,4 +2280,24 @@ body {
   .projects-master-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ENFORCE POPPINS TYPOGRAPHY GLOBALLY */
+*, *::before, *::after,
+html, body, button, input, textarea, select {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6,
+.brand-name,
+.hero-main-title,
+.section-heading,
+.card-title,
+.tl-role-title,
+.btn-primary-3d,
+.btn-ghost-3d,
+.btn-outline-3d,
+.btn-nav-cta,
+.filter-pill,
+.modal-hero h2 {
+  font-family: 'Poppins', sans-serif !important;
 }
