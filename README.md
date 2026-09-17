@@ -29,7 +29,7 @@
 ```python
 rajbharath = {
     "role"       : "Business & Data Analytics Professional",
-    "location"   : "Niagara Falls, Canada 🇨🇦",
+    "location"   : "Niagara Falls, Canada 🇨🇦, (Open to Relocate)",
     "education"  : "Business Administration – Management & Data Analytics",
     "focus"      : ["Data Analytics", "Business Intelligence", "Machine Learning", "AI Ethics"],
     "approach"   : "Understand the problem → Analyze the data → Communicate the insight → Enable better decisions",
@@ -389,27 +389,6 @@ Clustering & Segmentation
 </p>
 
 ---
-
-## 🤝 Let's Connect & Collaborate
-
-<div align="center">
-
-I'm always open to discussing **data analytics opportunities**, **collaborative projects**, or **industry insights**.
-
-<a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/">
-  <img src="https://img.shields.io/badge/LinkedIn-Let's_Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-<a href="https://rajbharath-mda-portfolio.netlify.app">
-  <img src="https://img.shields.io/badge/Portfolio-View_My_Work-00c6ff?style=for-the-badge&logo=netlify&logoColor=white"/>
-</a>
-<a href="mailto:bharathathlete81@gmail.com">
-  <img src="https://img.shields.io/badge/Email-Drop_a_Message-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-<a href="https://github.com/BharathJD06">
-  <img src="https://img.shields.io/badge/GitHub-Explore_My_Code-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-<br/><br/>
 
 > *"Without data, you're just another person with an opinion."* — W. Edwards Deming
 
