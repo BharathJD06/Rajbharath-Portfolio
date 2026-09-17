@@ -26,23 +26,6 @@
 
 ## 🧭 About Me
 
-```python
-rajbharath = {
-    "name"         : "Rajbharath Paramasivan",
-    "role"         : "Business & Data Analytics Professional",
-    "location"     : "Niagara Falls, Canada 🇨🇦  (Open to Relocate)",
-    "education"    : "Business Administration – Management & Data Analytics",
-    "experience"   : ["Synod Intellicare (Co-op)", "UNF Residence (VP Operations)", "Saiket System (BA Intern)"],
-    "focus"        : ["Data Analytics", "Business Intelligence", "Machine Learning", "AI Ethics"],
-    "tools"        : ["Python", "SQL", "Power BI", "Tableau", "Scikit-Learn", "Excel"],
-    "certifications": 6,  # Forage: British Airways, Citi, Deloitte, JPMorgan, Tata x2
-    "projects"     : 14,  # Healthcare, Finance, Retail, Real Estate, Optimization & more
-    "approach"     : "Understand → Analyze → Communicate → Enable better decisions",
-    "open_to"      : "Data Analyst | Business Analyst | BI Developer | ML Analyst",
-    "fun_fact"     : "I built a Dantzig-Wolfe crew optimizer before my morning coffee ☕"
-}
-```
-
 I'm a **Business & Data Analytics professional** passionate about solving real-world business problems through **data, technology, and structured problem-solving**. My work sits at the intersection of:
 
 > **Business Analysis × Data Analytics × Business Intelligence × Machine Learning × AI Ethics × Process Improvement**
