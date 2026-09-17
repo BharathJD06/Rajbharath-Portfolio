@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rajbharath Paramasivan - Business & Data Analytics Professional. 3D Animated Portfolio showcasing 23+ projects in Python, SQL, Power BI, Tableau, Machine Learning, and Optimization.">
+  <meta name="author" content="Rajbharath Paramasivan">
+  <meta property="og:title" content="Rajbharath Paramasivan | 3D Animated Analytics Portfolio">
+  <meta property="og:description" content="Turning complex data into actionable insights with Python, SQL, Power BI, Tableau & AI.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/112746598?v=4">
+  <title>Rajbharath Paramasivan | 3D Interactive Analytics Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Three.js for 3D GPU WebGL Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="cyan">
+  <!-- Custom Cyber Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Background WebGL 3D Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+  <div class="scanlines"></div>
+
+  <!-- Senior Video Animator HUD Overlays -->
+  <div class="hud-frame">
+    <div class="hud-top-left">
+      <div class="hud-rec"><span class="rec-dot"></span> REC [60 FPS]</div>
+      <div class="hud-tag">RES: 4K UHD // SHUTTER 1/120</div>
+    </div>
+    <div class="hud-top-right">
+      <div class="hud-time" id="hud-timecode">TC 00:00:00:00</div>
+      <div class="hud-tag">LOC: 43.0896° N, 79.0849° W [NIAGARA FALLS]</div>
+    </div>
+    <div class="hud-corner corner-tl"></div>
+    <div class="hud-corner corner-tr"></div>
+    <div class="hud-corner corner-bl"></div>
+    <div class="hud-corner corner-br"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="header">
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-brand">
+          <div class="brand-badge">
+            <span class="brand-initials">RP</span>
+            <span class="brand-glow"></span>
+          </div>
+          <div class="brand-info">
+            <span class="brand-name">Rajbharath</span>
+            <span class="brand-title">Analytics Architect</span>
+          </div>
+        </a>
+
+        <div class="nav-center">
+          <ul class="nav-menu">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Toolkit</a></li>
+            <li><a href="#projects" class="nav-link">Projects <span class="nav-count">23</span></a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#github-stats" class="nav-link">Activity</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="#terminal-section" class="nav-link">Console</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-right">
+          <!-- Audio Toggle -->
+          <button class="nav-tool-btn" id="audio-toggle" title="Toggle UI Sound FX" aria-label="Toggle Sound">
+            <svg class="audio-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            <svg class="audio-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <span class="sound-bars"><span class="sb"></span><span class="sb"></span><span class="sb"></span></span>
+          </button>
+
+          <!-- Mood Switcher -->
+          <button class="nav-tool-btn" id="theme-btn" title="Cycle Neon Color Palettes" aria-label="Switch Theme">
+            <span class="theme-dot"></span>
+          </button>
+
+          <a href="#contact" class="btn-nav-cta">
+            <span>Connect</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="mob-links">
+      <li><a href="#hero" class="mob-link">Home</a></li>
+      <li><a href="#about" class="mob-link">About Me</a></li>
+      <li><a href="#skills" class="mob-link">Technical Toolkit</a></li>
+      <li><a href="#projects" class="mob-link">Featured Projects (23)</a></li>
+      <li><a href="#experience" class="mob-link">Career Experience</a></li>
+      <li><a href="#github-stats" class="mob-link">GitHub Telemetry</a></li>
+      <li><a href="#certifications" class="mob-link">Certifications</a></li>
+      <li><a href="#terminal-section" class="mob-link">Live Console</a></li>
+      <li><a href="#contact" class="mob-link">Get In Touch</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid-bg"></div>
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="hero-status-pill">
+            <span class="pulsing-radar"></span>
+            <span class="status-txt">OPEN TO NEW OPPORTUNITIES & COLLABORATION</span>
+          </div>
+
+          <div class="hero-meta-subtitle">
+            <span class="hero-role-tag">BUSINESS & DATA ANALYTICS ARCHITECT</span>
+            <span class="hero-loc-tag">📍 NIAGARA FALLS, CANADA</span>
+          </div>
+
+          <h1 class="hero-main-title">
+            <span class="text-glow">Rajbharath</span><br>
+            <span class="text-gradient">Paramasivan</span>
+          </h1>
+
+          <div class="typewriter-box">
+            <span class="tw-prefix">&gt;&gt; SPECIALIZATION: </span>
+            <span class="tw-dynamic" id="typewriter-text"></span>
+            <span class="tw-cursor">_</span>
+          </div>
+
+          <p class="hero-description">
+            Transforming multi-terabyte datasets into decisive business growth. Integrating 
+            <strong>SQL, Python, Power BI, Tableau & Predictive AI</strong> to engineer high-impact 
+            executive dashboards, automate complex data pipelines, and eliminate business inefficiencies.
+          </p>
+
+          <div class="hero-button-group">
+            <a href="#projects" class="btn-primary-3d">
+              <span class="btn-shine"></span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Explore 23 Projects</span>
+            </a>
+            <a href="https://github.com/BharathJD06" target="_blank" rel="noopener noreferrer" class="btn-ghost-3d">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub Profile</span>
+            </a>
+            <a href="mailto:bharathathlete81@gmail.com" class="btn-outline-3d">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Contact Directly</span>
+            </a>
+          </div>
+
+          <!-- Real Metrics Counter -->
+          <div class="hero-metrics-bar">
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter" data-target="23">0</span><span class="metric-symbol">+</span></div>
+              <div class="metric-label">Repositories</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter" data-target="10000">0</span><span class="metric-symbol">+</span></div>
+              <div class="metric-label">Clinical Records</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter" data-target="40">0</span><span class="metric-symbol">%</span></div>
+              <div class="metric-label">Reporting Saved</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter" data-target="6">0</span><span class="metric-symbol">★</span></div>
+              <div class="metric-label">Certifications</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Holographic Avatar & Interactive Orbit -->
+        <div class="hero-avatar-wrapper">
+          <div class="holo-stage" id="holo-stage">
+            <div class="holo-orbit orbit-1"></div>
+            <div class="holo-orbit orbit-2"></div>
+            <div class="holo-orbit orbit-3"></div>
+            
+            <!-- Real GitHub Avatar Frame -->
+            <div class="avatar-holo-pod">
+              <div class="avatar-scanner"></div>
+              <div class="avatar-glow-ring"></div>
+              <img 
+                src="https://avatars.githubusercontent.com/u/112746598?v=4" 
+                alt="Rajbharath Paramasivan" 
+                class="avatar-img"
+                id="avatar-photo"
+                loading="eager"
+              >
+              <div class="avatar-badge-cyber">
+                <span class="dot-online"></span>
+                <span>DATA ARCHITECT</span>
+              </div>
+            </div>
+
+            <!-- Orbiting 3D Floating Tech Badges -->
+            <div class="tech-satellite sat-1" data-parallax="0.2">
+              <span class="sat-icon">🐍</span>
+              <span class="sat-text">Python / Pandas</span>
+            </div>
+            <div class="tech-satellite sat-2" data-parallax="-0.15">
+              <span class="sat-icon">⚡</span>
+              <span class="sat-text">Power BI / DAX</span>
+            </div>
+            <div class="tech-satellite sat-3" data-parallax="0.25">
+              <span class="sat-icon">💾</span>
+              <span class="sat-text">SQL Architecture</span>
+            </div>
+            <div class="tech-satellite sat-4" data-parallax="-0.2">
+              <span class="sat-icon">🤖</span>
+              <span class="sat-text">Machine Learning</span>
+            </div>
+            <div class="tech-satellite sat-5" data-parallax="0.18">
+              <span class="sat-icon">📊</span>
+              <span class="sat-text">Tableau Story</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="scroll-cue">
+        <div class="mouse-scroll">
+          <div class="mouse-roller"></div>
+        </div>
+        <span>INITIATE SCROLL // TELEMETRY</span>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">01 // IDENTITY MATRIX</span>
+          <h2 class="section-heading">Architecting Decisions with <span class="text-gradient">Precision Data</span></h2>
+          <p class="section-desc">At the convergence of business strategy, predictive analytics, and machine intelligence.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card-left">
+            <div class="cyber-box">
+              <div class="cyber-box-header">
+                <div class="box-dots"><span></span><span></span><span></span></div>
+                <span class="box-title">PROFILE_BIO.SYS</span>
+              </div>
+              <div class="cyber-box-body">
+                <p class="lead-text">
+                  I am a <strong>Business & Data Analytics Professional</strong> devoted to dismantling high-friction 
+                  organizational bottlenecks through empirical data modeling, predictive machine learning, and executive-level business intelligence.
+                </p>
+                <p>
+                  My methodology centers on rigorous inquiry: dissecting the core operational friction, engineering automated ETL data architectures, 
+                  extracting non-obvious behavioral correlations, and communicating high-leverage recommendations to board-level leadership.
+                </p>
+                
+                <div class="about-skills-matrix">
+                  <div class="matrix-pill">Business Analysis</div>
+                  <div class="matrix-pill">Data Analytics</div>
+                  <div class="matrix-pill">Business Intelligence</div>
+                  <div class="matrix-pill">Predictive Modeling</div>
+                  <div class="matrix-pill">AI Ethics & Bias Audit</div>
+                  <div class="matrix-pill">Workflow Engineering</div>
+                </div>
+
+                <div class="about-links-row">
+                  <a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/" target="_blank" rel="noopener noreferrer" class="social-pill linkedin">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn</span>
+                  </a>
+                  <a href="https://github.com/BharathJD06" target="_blank" rel="noopener noreferrer" class="social-pill github">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>@BharathJD06</span>
+                  </a>
+                  <a href="https://rajbharath-mda-portfolio.netlify.app" target="_blank" rel="noopener noreferrer" class="social-pill netlify">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span>Live Portal</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Pillars -->
+          <div class="about-pillars">
+            <div class="pillar-card" data-tilt>
+              <div class="pillar-icon">🔎</div>
+              <div class="pillar-content">
+                <h3>Business Analysis</h3>
+                <p>Translating ambiguous business challenges into quantifiable KPIs, user journeys, BRD/FRD blueprints, and operational roadmaps.</p>
+                <div class="pillar-tags"><span>Process Optimization</span><span>Requirements</span><span>Stakeholders</span></div>
+              </div>
+            </div>
+
+            <div class="pillar-card" data-tilt>
+              <div class="pillar-icon">📊</div>
+              <div class="pillar-content">
+                <h3>Data Analytics</h3>
+                <p>Exploratory data analysis, multivariate regression, A/B cohort validation, and statistical significance testing across production datasets.</p>
+                <div class="pillar-tags"><span>EDA</span><span>Python / Pandas</span><span>Hypothesis Testing</span></div>
+              </div>
+            </div>
+
+            <div class="pillar-card" data-tilt>
+              <div class="pillar-icon">📈</div>
+              <div class="pillar-content">
+                <h3>Business Intelligence</h3>
+                <p>Engineering self-serve executive dashboards with Power BI, Tableau & QuickSight, eliminating manual weekly reporting overhead by 40%.</p>
+                <div class="pillar-tags"><span>Power BI</span><span>DAX Modeling</span><span>Tableau Story</span></div>
+              </div>
+            </div>
+
+            <div class="pillar-card" data-tilt>
+              <div class="pillar-icon">🤖</div>
+              <div class="pillar-content">
+                <h3>Machine Learning & AI</h3>
+                <p>Deploying supervised/unsupervised algorithms, NLP sentiment classifiers, and bias detection audits ensuring fair and ethical demographic parity.</p>
+                <div class="pillar-tags"><span>Scikit-Learn</span><span>Fairness AI</span><span>Predictive Modeling</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS TOOLKIT SECTION -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">02 // TECH ARSENAL</span>
+          <h2 class="section-heading">Full Spectrum <span class="text-gradient">Analytics Stack</span></h2>
+          <p class="section-desc">Production-grade technologies honed through enterprise deployments and continuous mastery.</p>
+        </div>
+
+        <!-- Interactive Category Tabs -->
+        <div class="skills-universe-grid">
+          
+          <div class="skill-group-card">
+            <div class="sg-header">
+              <span class="sg-badge">LANGUAGES</span>
+              <h3>Core Programming</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill"><span class="pill-dot"></span>Python</span>
+              <span class="tool-pill"><span class="pill-dot"></span>SQL (Postgres, MySQL, MSSQL)</span>
+              <span class="tool-pill"><span class="pill-dot"></span>R Language</span>
+              <span class="tool-pill"><span class="pill-dot"></span>DAX</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Power Query (M)</span>
+              <span class="tool-pill"><span class="pill-dot"></span>JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card">
+            <div class="sg-header">
+              <span class="sg-badge">DATA STACK</span>
+              <h3>Python & ML Ecosystem</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill"><span class="pill-dot"></span>Pandas</span>
+              <span class="tool-pill"><span class="pill-dot"></span>NumPy</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Scikit-Learn</span>
+              <span class="tool-pill"><span class="pill-dot"></span>XGBoost</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Matplotlib & Seaborn</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Plotly</span>
+              <span class="tool-pill"><span class="pill-dot"></span>SciPy & Statsmodels</span>
+              <span class="tool-pill"><span class="pill-dot"></span>NLTK (NLP)</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card">
+            <div class="sg-header">
+              <span class="sg-badge">VISUALIZATION</span>
+              <h3>BI & Executive Dashboards</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill"><span class="pill-dot"></span>Microsoft Power BI</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Tableau Desktop / Cloud</span>
+              <span class="tool-pill"><span class="pill-dot"></span>AWS QuickSight</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Advanced Excel (VBA/Macros)</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Google Looker Studio</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card">
+            <div class="sg-header">
+              <span class="sg-badge">DATA ENGINEERING</span>
+              <h3>Databases & Infrastructure</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill"><span class="pill-dot"></span>PostgreSQL</span>
+              <span class="tool-pill"><span class="pill-dot"></span>MySQL</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Microsoft SQL Server</span>
+              <span class="tool-pill"><span class="pill-dot"></span>SQLite</span>
+              <span class="tool-pill"><span class="pill-dot"></span>ETL Pipeline Design</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Star / Snowflake Schemas</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card">
+            <div class="sg-header">
+              <span class="sg-badge">CLOUD & OPS</span>
+              <h3>Cloud Platforms & Workflow</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill"><span class="pill-dot"></span>Microsoft Azure</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Google Cloud Platform</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Azure Synapse Analytics</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Git & GitHub Enterprise</span>
+              <span class="tool-pill"><span class="pill-dot"></span>Jupyter Lab / VS Code</span>
+              <span class="tool-pill"><span class="pill-dot"></span>SPSS Statistics</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card highlight-frontier">
+            <div class="sg-header">
+              <span class="sg-badge frontier">FRONTIER</span>
+              <h3>Currently Mastering & Building</h3>
+            </div>
+            <div class="sg-pills">
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>dbt (Data Build Tool)</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>Apache Spark</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>Snowflake Data Cloud</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>Databricks Lakehouse</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>LangChain & Generative AI</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>Apache Airflow</span>
+              <span class="tool-pill pill-neon"><span class="pill-dot"></span>Streamlit Apps</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Animated Skill Radar / Bars -->
+        <div class="skills-benchmark-box">
+          <div class="benchmark-header">
+            <h3>Verified Competency Benchmarks</h3>
+            <span class="benchmark-tag">MEASURED PROFICIENCY</span>
+          </div>
+          <div class="benchmark-grid">
+            <div class="bm-bar">
+              <div class="bm-info"><span>Python & Data Wrangling</span><span class="bm-pct">94%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="bm-bar">
+              <div class="bm-info"><span>SQL Architecture & Query Optimization</span><span class="bm-pct">92%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="bm-bar">
+              <div class="bm-info"><span>Power BI & Tableau Dashboard Design</span><span class="bm-pct">90%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="bm-bar">
+              <div class="bm-info"><span>Machine Learning & Bias Mitigation</span><span class="bm-pct">86%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 86%;"></div></div>
+            </div>
+            <div class="bm-bar">
+              <div class="bm-info"><span>Business Process Analysis & BRD/FRD</span><span class="bm-pct">88%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="bm-bar">
+              <div class="bm-info"><span>Time Series Forecasting & Econometrics</span><span class="bm-pct">85%</span></div>
+              <div class="bm-track"><div class="bm-fill" style="width: 85%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION: ALL 23 GITHUB REPOSITORIES -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">03 // CODE REPOSITORIES</span>
+          <h2 class="section-heading">Featured <span class="text-gradient">Projects Portfolio</span></h2>
+          <p class="section-desc">23 end-to-end data analytics, machine learning, and business intelligence repositories synchronized with GitHub.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-toolbar">
+          <button class="filter-pill active" data-filter="all">All (23)</button>
+          <button class="filter-pill" data-filter="ml">Machine Learning & AI (10)</button>
+          <button class="filter-pill" data-filter="bi">Business Intelligence & Dashboards (8)</button>
+          <button class="filter-pill" data-filter="finance">Finance & Economics (6)</button>
+          <button class="filter-pill" data-filter="operations">Operations & Healthcare (4)</button>
+          <button class="filter-pill" data-filter="sql">SQL & Relational (5)</button>
+        </div>
+
+        <!-- 23 PROJECT CARDS GRID -->
+        <div class="projects-master-grid" id="projects-grid">
+
+          <!-- 01: Advance-Analysis-of-Sales-Market -->
+          <div class="project-3d-card" data-category="all bi sql" data-project-id="1">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#01</span>
+              <span class="card-badge bi">Power BI / SQL</span>
+            </div>
+            <div class="card-icon-banner">📊</div>
+            <h3 class="card-title">Advanced Sales Market Analysis</h3>
+            <p class="card-desc">Multi-dimensional sales trend analysis with predictive forecasting and executive KPI dashboards. Pinpointed revenue growth vectors across geographical regions.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Power BI</span><span>SQL</span><span>Forecasting</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Advance-Analysis-of-Sales-Market" target="_blank" rel="noopener noreferrer" class="btn-card-code" title="View Source on GitHub">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="1">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 02: AI-Usage-Analysis -->
+          <div class="project-3d-card" data-category="all ml" data-project-id="2">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#02</span>
+              <span class="card-badge ml">NLP / AI</span>
+            </div>
+            <div class="card-icon-banner">🤖</div>
+            <h3 class="card-title">AI Usage & Adoption Analysis</h3>
+            <p class="card-desc">Evaluated generative AI adoption rates and sentiment trends across industries using NLP tokenization, topic modeling, and Tableau interactive dashboards.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Tableau</span><span>NLP</span><span>Sentiment Analysis</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/AI-Usage-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="2">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 03: Bank-Transaction-Analysis -->
+          <div class="project-3d-card" data-category="all finance sql ml" data-project-id="3">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#03</span>
+              <span class="card-badge finance">FinTech / Fraud</span>
+            </div>
+            <div class="card-icon-banner">💳</div>
+            <h3 class="card-title">Bank Transaction & Fraud Analysis</h3>
+            <p class="card-desc">Machine learning classification and anomaly detection on financial transaction logs. Engineered SQL pipelines to flag unauthorized suspicious transfers.</p>
+            <div class="card-tech-stack">
+              <span>SQL</span><span>Python</span><span>Power BI</span><span>Fraud Detection</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Bank-Transaction-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="3">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 04: CrewOptimizerDW -->
+          <div class="project-3d-card" data-category="all operations ml" data-project-id="4">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#04</span>
+              <span class="card-badge operations">OR Optimization</span>
+            </div>
+            <div class="card-icon-banner">🛫</div>
+            <h3 class="card-title">Airline Crew Optimizer (Dantzig-Wolfe)</h3>
+            <p class="card-desc">Advanced linear programming algorithm for airline crew pairing. Utilized Dantzig-Wolfe column generation decomposition to minimize flight deadhead costs.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>OR-Tools</span><span>Dantzig-Wolfe</span><span>Optimization</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/CrewOptimizerDW" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="4">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 05: Health-Care -->
+          <div class="project-3d-card" data-category="all operations ml" data-project-id="5">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#05</span>
+              <span class="card-badge operations">Healthcare AI</span>
+            </div>
+            <div class="card-icon-banner">🏥</div>
+            <h3 class="card-title">Healthcare Bias Detection & Analytics</h3>
+            <p class="card-desc">Analyzed 10,000+ patient records for algorithmic bias and diagnostic disparity. Implemented fairness metrics that increased demographic parity by 15–25%.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>SQL</span><span>Fairness AI</span><span>Healthcare</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Health-Care" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="5">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 06: E-Commerce -->
+          <div class="project-3d-card" data-category="all bi sql" data-project-id="6">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#06</span>
+              <span class="card-badge bi">E-Commerce</span>
+            </div>
+            <div class="card-icon-banner">🛒</div>
+            <h3 class="card-title">E-Commerce Funnel & Consumer Behavior</h3>
+            <p class="card-desc">End-to-end customer journey analytics, checkout abandonment diagnostics, basket co-purchases, and revenue retention cohort models.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Tableau</span><span>SQL</span><span>Cohort Analysis</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/E-Commerce" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="6">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 07: Electricity-Supply-to-World-Populations-2016-2023 -->
+          <div class="project-3d-card" data-category="all bi" data-project-id="7">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#07</span>
+              <span class="card-badge bi">Geospatial / Energy</span>
+            </div>
+            <div class="card-icon-banner">⚡</div>
+            <h3 class="card-title">Global Electricity Supply (2016-2023)</h3>
+            <p class="card-desc">Geospatial and temporal tracking of global grid penetration across 190+ nations. Compared clean renewable generation against fossil fuel dependency.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Power BI</span><span>Geospatial</span><span>Global Energy</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Electricity-Supply-to-World-Populations-2016-2023" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="7">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 08: Strategic-Mobile-Sales-Analysis-and-Forecasting -->
+          <div class="project-3d-card" data-category="all ml" data-project-id="8">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#08</span>
+              <span class="card-badge ml">Time Series</span>
+            </div>
+            <div class="card-icon-banner">📉</div>
+            <h3 class="card-title">Strategic Mobile Sales Forecasting</h3>
+            <p class="card-desc">ARIMA & Facebook Prophet time-series models for mobile phone sales. Decomposed seasonal variances, promotional spikes, and quarterly demand trends.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>ARIMA</span><span>Prophet</span><span>Forecasting</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Strategic-Mobile-Sales-Analysis-and-Forecasting" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="8">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 09: Real-Estate-Analysis -->
+          <div class="project-3d-card" data-category="all bi finance" data-project-id="9">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#09</span>
+              <span class="card-badge bi">Real Estate</span>
+            </div>
+            <div class="card-icon-banner">🏠</div>
+            <h3 class="card-title">Real Estate Valuation & Property Trends</h3>
+            <p class="card-desc">Urban property price trends, square footage valuation, cap rate analysis, and multivariate regression modeling for residential property investors.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Power BI</span><span>Regression</span><span>Valuation</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Real-Estate-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="9">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 10: Mall-Customers -->
+          <div class="project-3d-card" data-category="all ml" data-project-id="10">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#10</span>
+              <span class="card-badge ml">Clustering</span>
+            </div>
+            <div class="card-icon-banner">🛍️</div>
+            <h3 class="card-title">Mall Customer Traffic & Clustering</h3>
+            <p class="card-desc">Unsupervised K-Means and Hierarchical Clustering identifying distinct shopper personas by annual income and spending elasticity to tailor commercial tenant mix.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>K-Means</span><span>Clustering</span><span>Scikit-Learn</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Mall-Customers" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="10">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 11: NorthWind -->
+          <div class="project-3d-card" data-category="all sql bi" data-project-id="11">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#11</span>
+              <span class="card-badge bi">SQL Warehouse</span>
+            </div>
+            <div class="card-icon-banner">🚢</div>
+            <h3 class="card-title">NorthWind Trading BI & Data Model</h3>
+            <p class="card-desc">End-to-end relational schema modeling on the iconic Northwind dataset. Built Star Schemas, complex SQL window functions, and executive supply chain dashboards.</p>
+            <div class="card-tech-stack">
+              <span>SQL</span><span>Power BI</span><span>Star Schema</span><span>ETL</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/NorthWind" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="11">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 12: Wine-Quality -->
+          <div class="project-3d-card" data-category="all ml" data-project-id="12">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#12</span>
+              <span class="card-badge ml">ML Classification</span>
+            </div>
+            <div class="card-icon-banner">🍷</div>
+            <h3 class="card-title">Wine Quality Physicochemical Classifier</h3>
+            <p class="card-desc">Supervised classification utilizing Random Forests and Support Vector Machines to grade wine quality using acidity, sulfur dioxide, and residual sugar parameters.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Random Forest</span><span>SVM</span><span>Cross Validation</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Wine-Quality" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="12">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 13: Home-Loan-Approval-Analysis -->
+          <div class="project-3d-card" data-category="all finance ml" data-project-id="13">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#13</span>
+              <span class="card-badge finance">FinTech / Risk</span>
+            </div>
+            <div class="card-icon-banner">🏡</div>
+            <h3 class="card-title">Home Loan Approval Risk Modeling</h3>
+            <p class="card-desc">Underwriting risk assessment model evaluating credit history, debt-to-income metrics, and loan repayment likelihood with logistic regression & gradient trees.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Scikit-Learn</span><span>Risk Analytics</span><span>Logistic Regression</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Home-Loan-Approval-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="13">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 14: Bank-of-Canada -->
+          <div class="project-3d-card" data-category="all finance" data-project-id="14">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#14</span>
+              <span class="card-badge finance">Macroeconomics</span>
+            </div>
+            <div class="card-icon-banner">🏛️</div>
+            <h3 class="card-title">Bank of Canada Interest & Yield Trends</h3>
+            <p class="card-desc">Policy interest rate trajectories, CPI inflation metrics, overnight lending benchmarks, and bond yield curves through multiple macroeconomic easing cycles.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Economics</span><span>Financial Analytics</span><span>Time Series</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Bank-of-Canada" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="14">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 15: GDP-Per-Country -->
+          <div class="project-3d-card" data-category="all finance bi" data-project-id="15">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#15</span>
+              <span class="card-badge finance">Global GDP</span>
+            </div>
+            <div class="card-icon-banner">🌍</div>
+            <h3 class="card-title">GDP Per Country & Disparity Analysis</h3>
+            <p class="card-desc">Cross-country economic disparities, purchasing power parity (PPP), Human Development Index (HDI) regression, and historical growth velocity benchmarks.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Jupyter</span><span>Macroeconomics</span><span>Data Viz</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/GDP-Per-Country" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="15">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 16: Air-Cargo-Freight -->
+          <div class="project-3d-card" data-category="all operations" data-project-id="16">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#16</span>
+              <span class="card-badge operations">Aviation Logistics</span>
+            </div>
+            <div class="card-icon-banner">✈️</div>
+            <h3 class="card-title">Air Cargo Freight Routes & Volume</h3>
+            <p class="card-desc">Freight tonnage distribution across international hub airports, seasonal cargo demand fluctuations, route optimization, and operational flight efficiency.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Jupyter</span><span>Logistics</span><span>Supply Chain</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Air-Cargo-Freight" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="16">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 17: POWER-BI-SMARTPHONE-MARKET-ANALYSIS -->
+          <div class="project-3d-card" data-category="all bi" data-project-id="17">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#17</span>
+              <span class="card-badge bi">Power BI Executive</span>
+            </div>
+            <div class="card-icon-banner">📱</div>
+            <h3 class="card-title">Power BI Smartphone Market Dashboard</h3>
+            <p class="card-desc">Interactive executive reporting with custom DAX measures, dynamic drill-down hierarchies, vendor competitive landscape, and price elasticity graphs.</p>
+            <div class="card-tech-stack">
+              <span>Power BI</span><span>DAX</span><span>BI Dashboard</span><span>Data Modeling</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/POWER-BI-SMARTPHONE-MARKET-ANALYSIS" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="17">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 18: Predictive-Mobile-Market -->
+          <div class="project-3d-card" data-category="all ml" data-project-id="18">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#18</span>
+              <span class="card-badge ml">Pricing AI</span>
+            </div>
+            <div class="card-icon-banner">🔮</div>
+            <h3 class="card-title">Predictive Mobile Market Pricing</h3>
+            <p class="card-desc">Gradient boosted regression models forecasting device retail price points from hardware specifications (SoC speed, RAM density, camera sensors, 5G modems).</p>
+            <div class="card-tech-stack">
+              <span>Scikit-Learn</span><span>XGBoost</span><span>Regression</span><span>Feature Engineering</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Predictive-Mobile-Market" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="18">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 19: Mobile-Market-Analysis -->
+          <div class="project-3d-card" data-category="all bi" data-project-id="19">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#19</span>
+              <span class="card-badge bi">Market Strategy</span>
+            </div>
+            <div class="card-icon-banner">📲</div>
+            <h3 class="card-title">Mobile Market Share & Positioning</h3>
+            <p class="card-desc">Comprehensive brand equity, operating system distribution (Android vs. iOS), and pricing tier penetration benchmarking global smartphone manufacturers.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Tableau</span><span>Market Analytics</span><span>Strategy</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Mobile-Market-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="19">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 20: Finance-Economic-Analysis -->
+          <div class="project-3d-card" data-category="all finance" data-project-id="20">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#20</span>
+              <span class="card-badge finance">Econometrics</span>
+            </div>
+            <div class="card-icon-banner">💹</div>
+            <h3 class="card-title">Macro-Financial Economic Correlator</h3>
+            <p class="card-desc">Statistical modeling analyzing correlation coefficients between consumer confidence indices, exchange rates, equity valuations, and central bank reserve assets.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>R</span><span>Excel</span><span>Econometrics</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Finance-Economic-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="20">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 21: Finance-Project -->
+          <div class="project-3d-card" data-category="all finance" data-project-id="21">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#21</span>
+              <span class="card-badge finance">Valuation</span>
+            </div>
+            <div class="card-icon-banner">💰</div>
+            <h3 class="card-title">Corporate Financial Valuation Model</h3>
+            <p class="card-desc">Automated DuPont analysis decomposing return on equity (ROE), working capital velocity, DCF cash flow discounting, and company solvency stress tests.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Jupyter</span><span>Financial Modeling</span><span>Valuation</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Finance-Project" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="21">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 22: Water-Intake-Analysis -->
+          <div class="project-3d-card" data-category="all operations" data-project-id="22">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#22</span>
+              <span class="card-badge operations">Biometrics</span>
+            </div>
+            <div class="card-icon-banner">💧</div>
+            <h3 class="card-title">Daily Hydration & Biometric Analysis</h3>
+            <p class="card-desc">Exploratory biometric study correlating fluid intake routines with circadian energy dips, physical exertion logs, and cognitive focus durations.</p>
+            <div class="card-tech-stack">
+              <span>Python</span><span>Health Analytics</span><span>Exploratory Analysis</span><span>Biometrics</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Water-Intake-Analysis" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="22">Deep Dive ↗</button>
+            </div>
+          </div>
+
+          <!-- 23: Rajbharath-Portfolio -->
+          <div class="project-3d-card highlight-self" data-category="all bi" data-project-id="23">
+            <div class="card-glass-glow"></div>
+            <div class="card-top-meta">
+              <span class="card-num">#23</span>
+              <span class="card-badge frontier">3D Motion & WebGL</span>
+            </div>
+            <div class="card-icon-banner">✨</div>
+            <h3 class="card-title">Rajbharath 3D Animated Portfolio</h3>
+            <p class="card-desc">The open-source repository driving this high-performance WebGL portfolio with Three.js particle dynamics, HUD graphic overlays, audio feedback, and 23 project deep dives.</p>
+            <div class="card-tech-stack">
+              <span>Three.js</span><span>WebGL</span><span>CSS Motion</span><span>JavaScript</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/BharathJD06/Rajbharath-Portfolio" target="_blank" rel="noopener noreferrer" class="btn-card-code">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <button class="btn-card-demo" data-detail-modal="23">Deep Dive ↗</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="projects-cta-box">
+          <a href="https://github.com/BharathJD06" target="_blank" rel="noopener noreferrer" class="btn-primary-3d">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Inspect All 23 Repositories on GitHub (BharathJD06)</span>
+          </a>
+          <a href="https://rajbharath-mda-portfolio.netlify.app" target="_blank" rel="noopener noreferrer" class="btn-ghost-3d">
+            <span>Open Netlify Portfolio Showcase ↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAREER EXPERIENCE TIMELINE -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">04 // PROFESSIONAL RECORD</span>
+          <h2 class="section-heading">Operational & <span class="text-gradient">Analytics Experience</span></h2>
+          <p class="section-desc">Measurable enterprise impacts delivering efficiency gains, bias reduction, and process streamlining.</p>
+        </div>
+
+        <div class="timeline-cyber">
+          
+          <!-- Role 1 -->
+          <div class="tl-block">
+            <div class="tl-marker">
+              <div class="marker-pulse"></div>
+              <div class="marker-icon">🏥</div>
+            </div>
+            <div class="tl-content-card" data-tilt>
+              <div class="tl-badge-row">
+                <span class="tl-role-tag">Healthcare & Co-op</span>
+                <span class="tl-time">Jan 2026 – Jun 2026</span>
+              </div>
+              <h3 class="tl-role-title">Data Analyst & Project Manager (Co-op)</h3>
+              <div class="tl-company-meta">
+                <span class="tl-company">Synod Intellicare</span>
+                <span class="tl-location">📍 Brantford (Remote)</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Analyzed <strong>10,000+ healthcare records</strong> using SQL and Python to identify trends, anomalies, and clinical inconsistencies.</li>
+                <li>Engineered machine learning classifiers to audit bias, increasing demographic fairness metrics by <strong>15–25%</strong>.</li>
+                <li>Created <strong>5+ interactive enterprise dashboards</strong> across AWS QuickSight, Power BI, and Tableau — slicing reporting cycles by <strong>40%</strong>.</li>
+                <li>Executed end-to-end data cleansing, transformation, and automated validation gates for high-stakes clinical decisioning.</li>
+                <li>Partnered with cross-functional physicians, engineers, and executive directors to translate domain pain points into actionable telemetry.</li>
+              </ul>
+              <div class="tl-tech-tags">
+                <span>SQL</span><span>Python</span><span>QuickSight</span><span>Power BI</span><span>Tableau</span><span>Fairness AI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="tl-block">
+            <div class="tl-marker">
+              <div class="marker-pulse active"></div>
+              <div class="marker-icon">🏢</div>
+            </div>
+            <div class="tl-content-card" data-tilt>
+              <div class="tl-badge-row">
+                <span class="tl-role-tag active">Leadership // Active</span>
+                <span class="tl-time">Apr 2025 – Present</span>
+              </div>
+              <h3 class="tl-role-title">Vice President (Operations)</h3>
+              <div class="tl-company-meta">
+                <span class="tl-company">UNF Residence</span>
+                <span class="tl-location">📍 Niagara Falls, ON</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Directing comprehensive operational infrastructure for <strong>100+ residents</strong>, elevating facility service efficiency by <strong>20%</strong> through data-backed workflows.</li>
+                <li>Designed and deployed operational tracking systems, slashing maintenance issue resolution turnaround by <strong>25%</strong>.</li>
+                <li>Authored automated executive status reports and budget allocation models for strategic resource deployment.</li>
+                <li>Spearheaded conflict resolution and high-stakes stakeholder communications across institutional governance.</li>
+              </ul>
+              <div class="tl-tech-tags">
+                <span>Operations</span><span>Workflow Optimization</span><span>Resource Allocation</span><span>Executive Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="tl-block">
+            <div class="tl-marker">
+              <div class="marker-pulse"></div>
+              <div class="marker-icon">💼</div>
+            </div>
+            <div class="tl-content-card" data-tilt>
+              <div class="tl-badge-row">
+                <span class="tl-role-tag">Business Analysis</span>
+                <span class="tl-time">Jan 2026 – Feb 2026</span>
+              </div>
+              <h3 class="tl-role-title">Business Analyst Intern</h3>
+              <div class="tl-company-meta">
+                <span class="tl-company">Saiket System</span>
+                <span class="tl-location">📍 Remote</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Conducted thorough business process mapping to identify procedural bottlenecks, driving an operational performance uplift of <strong>15%</strong>.</li>
+                <li>Synthesized client requirement specifications into concrete technical deliverables and analytics dashboards.</li>
+              </ul>
+              <div class="tl-tech-tags">
+                <span>Process Mapping</span><span>Gap Analysis</span><span>Requirements Gathering</span><span>Business Analytics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 4 -->
+          <div class="tl-block">
+            <div class="tl-marker">
+              <div class="marker-pulse"></div>
+              <div class="marker-icon">🎓</div>
+            </div>
+            <div class="tl-content-card" data-tilt>
+              <div class="tl-badge-row">
+                <span class="tl-role-tag">Operations</span>
+                <span class="tl-time">Jul 2023 – Dec 2024</span>
+              </div>
+              <h3 class="tl-role-title">Administrative Operations Intern</h3>
+              <div class="tl-company-meta">
+                <span class="tl-company">Rahul Education</span>
+                <span class="tl-location">📍 Mumbai</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Maintained institutional academic records and multi-relational student registries with strict confidentiality standards.</li>
+                <li>Administered database updates, digital verification systems, and recurring institutional audit schedules.</li>
+              </ul>
+              <div class="tl-tech-tags">
+                <span>Database Administration</span><span>Data Integrity</span><span>Institutional Scheduling</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE GITHUB TELEMETRY & STATS -->
+    <section id="github-stats" class="section stats-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">05 // LIVE TELEMETRY</span>
+          <h2 class="section-heading">Live GitHub <span class="text-gradient">Profile Analytics</span></h2>
+          <p class="section-desc">Real-time commit telemetry, top languages, and consistency streak fetched directly from @BharathJD06.</p>
+        </div>
+
+        <div class="stats-cards-row">
+          <div class="gh-stat-card">
+            <div class="gh-card-header">
+              <span>GITHUB PROFILE METRICS</span>
+              <span class="live-dot">● LIVE</span>
+            </div>
+            <div class="gh-image-box">
+              <img 
+                src="https://github-readme-stats.vercel.app/api?username=BharathJD06&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0a0e17&title_color=00c6ff&icon_color=00c6ff&text_color=ffffff" 
+                alt="BharathJD06 GitHub Stats"
+                loading="lazy"
+              >
+            </div>
+          </div>
+
+          <div class="gh-stat-card">
+            <div class="gh-card-header">
+              <span>MOST UTILIZED LANGUAGES</span>
+              <span class="live-dot">● LIVE</span>
+            </div>
+            <div class="gh-image-box">
+              <img 
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=BharathJD06&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0a0e17&title_color=00c6ff&text_color=ffffff" 
+                alt="BharathJD06 Top Languages"
+                loading="lazy"
+              >
+            </div>
+          </div>
+
+          <div class="gh-stat-card">
+            <div class="gh-card-header">
+              <span>COMMIT STREAK TELEMETRY</span>
+              <span class="live-dot">● LIVE</span>
+            </div>
+            <div class="gh-image-box">
+              <img 
+                src="https://streak-stats.demolab.com?user=BharathJD06&theme=tokyonight&hide_border=true&background=0a0e17&ring=00c6ff&fire=00c6ff&currStreakLabel=00c6ff" 
+                alt="BharathJD06 Streak"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Profile Views Widget -->
+        <div class="views-counter-strip">
+          <div class="vc-item">
+            <span class="vc-title">AUDIT FOOTPRINT</span>
+            <img src="https://komarev.com/ghpvc/?username=BharathJD06&style=for-the-badge&color=0A66C2&label=PROFILE+VIEWS" alt="Profile Views" class="badge-img">
+          </div>
+          <div class="vc-item">
+            <span class="vc-title">GITHUB NETWORK</span>
+            <img src="https://img.shields.io/github/followers/BharathJD06?style=for-the-badge&logo=github&color=181717" alt="Followers" class="badge-img">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & HONORS -->
+    <section id="certifications" class="section certs-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">06 // VERIFIED ACCREDITATIONS</span>
+          <h2 class="section-heading">Global <span class="text-gradient">Certifications</span></h2>
+          <p class="section-desc">Completed rigorous virtual experience programs with premier global financial and consulting enterprises.</p>
+        </div>
+
+        <div class="certs-master-grid">
+          
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">✈️</div>
+            <span class="cert-corp">BRITISH AIRWAYS</span>
+            <h4>Data Science Virtual Experience</h4>
+            <p>Customer Predictive Analytics · Flight Scraper Architecture · Feature Engineering</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">🏦</div>
+            <span class="cert-corp">CITI BANK</span>
+            <h4>Quantitative Analysis Program</h4>
+            <p>Quantitative Financial Modeling · Risk Metrics · Asset Portfolio Optimization</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">🔷</div>
+            <span class="cert-corp">DELOITTE</span>
+            <h4>Business Analysis Virtual Program</h4>
+            <p>Enterprise Strategy Formulation · Cloud Architecture · Systems Modernization</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">💎</div>
+            <span class="cert-corp">JP MORGAN CHASE & CO.</span>
+            <h4>Data Analytics Virtual Experience</h4>
+            <p>Financial Telemetry · Portfolio Analytics · Business Storytelling for Leadership</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">🔶</div>
+            <span class="cert-corp">TATA GROUP</span>
+            <h4>Gen AI Powered Data Analytics</h4>
+            <p>Generative Artificial Intelligence · Prompt Engineering · Autonomous Synthesis</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+          <div class="cert-foil-card" data-tilt>
+            <div class="foil-glare"></div>
+            <div class="cert-icon-box">🌐</div>
+            <span class="cert-corp">TATA GROUP</span>
+            <h4>Data Visualization Internship</h4>
+            <p>Executive Dashboard UX · Power BI KPIs · Strategic Enterprise Forecasting</p>
+            <div class="cert-footer-badge">Forage Certified</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CYBER TERMINAL / CONSOLE -->
+    <section id="terminal-section" class="section terminal-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">07 // DEVELOPER INTERACTION</span>
+          <h2 class="section-heading">Interactive <span class="text-gradient">Analyst Console</span></h2>
+          <p class="section-desc">Type commands or execute preset macro queries to inspect live candidate parameters.</p>
+        </div>
+
+        <div class="terminal-shell">
+          <div class="term-title-bar">
+            <div class="term-traffic-lights">
+              <span class="btn-red"></span>
+              <span class="btn-yellow"></span>
+              <span class="btn-green"></span>
+            </div>
+            <div class="term-title-text">rajbharath@analytics-node: ~ (zsh)</div>
+            <div class="term-status-badge">ONLINE // PORT 8080</div>
+          </div>
+
+          <div class="term-quick-macros">
+            <span class="macro-label">MACRO QUERY:</span>
+            <button class="macro-btn" data-cmd="skills">skills</button>
+            <button class="macro-btn" data-cmd="projects">projects</button>
+            <button class="macro-btn" data-cmd="experience">experience</button>
+            <button class="macro-btn" data-cmd="contact">contact</button>
+            <button class="macro-btn" data-cmd="hire">hire</button>
+            <button class="macro-btn" data-cmd="clear">clear</button>
+          </div>
+
+          <div class="term-body" id="term-body">
+            <div class="term-line output-system">
+              [SYSTEM INITIALIZED] Welcome to Rajbharath Paramasivan's Interactive Terminal.<br>
+              Type <span class="term-hl">'help'</span> or click the macro buttons above to query candidate records.
+            </div>
+          </div>
+
+          <div class="term-input-row">
+            <span class="term-prompt">rajbharath@node:~$</span>
+            <input type="text" id="term-input" class="term-input" placeholder="type 'help', 'skills', 'projects', 'hire'..." autocomplete="off">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & CONNECT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-sub-tag">08 // TRANSMISSION</span>
+          <h2 class="section-heading">Initiate <span class="text-gradient">Collaboration</span></h2>
+          <p class="section-desc">Ready to solve data challenges, optimize operational workflows, or join forward-thinking analytics teams.</p>
+        </div>
+
+        <div class="contact-grid-main">
+          
+          <!-- Contact Cards -->
+          <div class="contact-cards-col">
+            <a href="mailto:bharathathlete81@gmail.com" class="contact-touch-card">
+              <div class="ct-icon">✉️</div>
+              <div class="ct-text">
+                <span class="ct-label">DIRECT INBOX</span>
+                <span class="ct-val">bharathathlete81@gmail.com</span>
+              </div>
+              <span class="ct-arrow">→</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rajbharath-paramasivan-522729264/" target="_blank" rel="noopener noreferrer" class="contact-touch-card">
+              <div class="ct-icon">💼</div>
+              <div class="ct-text">
+                <span class="ct-label">LINKEDIN NETWORK</span>
+                <span class="ct-val">rajbharath-paramasivan</span>
+              </div>
+              <span class="ct-arrow">→</span>
+            </a>
+
+            <a href="https://github.com/BharathJD06" target="_blank" rel="noopener noreferrer" class="contact-touch-card">
+              <div class="ct-icon">🐙</div>
+              <div class="ct-text">
+                <span class="ct-label">GITHUB REPOSITORY</span>
+                <span class="ct-val">github.com/BharathJD06</span>
+              </div>
+              <span class="ct-arrow">→</span>
+            </a>
+
+            <a href="https://rajbharath-mda-portfolio.netlify.app" target="_blank" rel="noopener noreferrer" class="contact-touch-card">
+              <div class="ct-icon">🌐</div>
+              <div class="ct-text">
+                <span class="ct-label">NETLIFY PORTFOLIO</span>
+                <span class="ct-val">rajbharath-mda-portfolio.netlify.app</span>
+              </div>
+              <span class="ct-arrow">→</span>
+            </a>
+
+            <div class="contact-quote-pod">
+              <p class="quote-text">"Without data, you're just another person with an opinion."</p>
+              <cite class="quote-author">— W. Edwards Deming</cite>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-col">
+            <form class="cyber-form" id="contact-form">
+              <div class="form-title-row">
+                <h3>Send Direct Message</h3>
+                <span class="secure-badge">🔒 256-BIT ENCRYPTED</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">FULL NAME *</label>
+                  <input type="text" id="contact-name" name="name" placeholder="e.g. John Doe" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">EMAIL ADDRESS *</label>
+                  <input type="email" id="contact-email" name="email" placeholder="e.g. j.doe@company.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">PURPOSE / SUBJECT</label>
+                <input type="text" id="contact-subject" name="subject" placeholder="Data Analyst Role / Project Inquiry">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">MESSAGE BODY *</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="Share project scope, timeline, or opportunity details..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit-cyber" id="submit-btn">
+                <span>Dispatch Transmission</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+
+              <div class="form-toast" id="form-toast">
+                <span>✅ Message Dispatched Successfully! I will respond promptly within 24 hours.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-cyber">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <span class="f-init">RP</span>
+          <div>
+            <span class="f-name">Rajbharath Paramasivan</span>
+            <span class="f-title">Business & Data Analytics Professional</span>
+          </div>
+        </div>
+        <p class="footer-copy">Crafted with modern WebGL, 3D animations, and a dedication to clean analytics engineering.</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#hero">Top</a>
+        <a href="#about">About</a>
+        <a href="#skills">Toolkit</a>
+        <a href="#projects">23 Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-right">
+        <span class="copyright-text">© 2026 Rajbharath Paramasivan. All rights reserved.</span>
+        <span class="gh-link-tag">Profile: <a href="https://github.com/BharathJD06" target="_blank" rel="noopener noreferrer">github.com/BharathJD06</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL FOR PROJECT DEEP DIVES -->
+  <div class="project-modal" id="project-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
