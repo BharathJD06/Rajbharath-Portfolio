@@ -28,12 +28,18 @@
 
 ```python
 rajbharath = {
-    "role"       : "Business & Data Analytics Professional",
-    "location"   : "Niagara Falls, Canada 🇨🇦",
-    "education"  : "Business Administration – Management & Data Analytics",
-    "focus"      : ["Data Analytics", "Business Intelligence", "Machine Learning", "AI Ethics"],
-    "approach"   : "Understand the problem → Analyze the data → Communicate the insight → Enable better decisions",
-    "open_to"    : "Data Analyst | Business Analyst | BI Developer roles"
+    "name"         : "Rajbharath Paramasivan",
+    "role"         : "Business & Data Analytics Professional",
+    "location"     : "Niagara Falls, Canada 🇨🇦  (Open to Relocate)",
+    "education"    : "Business Administration – Management & Data Analytics",
+    "experience"   : ["Synod Intellicare (Co-op)", "UNF Residence (VP Operations)", "Saiket System (BA Intern)"],
+    "focus"        : ["Data Analytics", "Business Intelligence", "Machine Learning", "AI Ethics"],
+    "tools"        : ["Python", "SQL", "Power BI", "Tableau", "Scikit-Learn", "Excel"],
+    "certifications": 6,  # Forage: British Airways, Citi, Deloitte, JPMorgan, Tata x2
+    "projects"     : 14,  # Healthcare, Finance, Retail, Real Estate, Optimization & more
+    "approach"     : "Understand → Analyze → Communicate → Enable better decisions",
+    "open_to"      : "Data Analyst | Business Analyst | BI Developer | ML Analyst",
+    "fun_fact"     : "I built a Dantzig-Wolfe crew optimizer before my morning coffee ☕"
 }
 ```
 
@@ -82,7 +88,7 @@ Power BI Dashboard Design
 Tableau Story Telling
 KPI Development
 Executive Reporting
-AWS QuickSight
+QuickSight Dashboards
 Data Storytelling
 Self-Serve Analytics
 Report Automation
@@ -139,9 +145,8 @@ Clustering & Segmentation
 <p>
 <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
 <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white"/>
-<img src="https://img.shields.io/badge/AWS_QuickSight-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
+<img src="https://img.shields.io/badge/QuickSight-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
 <img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white"/>
-<img src="https://img.shields.io/badge/Looker-4285F4?style=for-the-badge&logo=looker&logoColor=white"/>
 <img src="https://img.shields.io/badge/Google_Data_Studio-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
 </p>
 
@@ -159,11 +164,10 @@ Clustering & Segmentation
 ### ☁️ Cloud & Data Platforms
 
 <p>
-<img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"/>
 <img src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
 <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"/>
-<img src="https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white"/>
 <img src="https://img.shields.io/badge/Azure_Synapse-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://img.shields.io/badge/Amazon_QuickSight-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
 </p>
 
 ### 🧰 Tools & Workflow
@@ -174,10 +178,10 @@ Clustering & Segmentation
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 <img src="https://img.shields.io/badge/SPSS-052FAD?style=for-the-badge&logo=ibm&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white"/>
 <img src="https://img.shields.io/badge/Confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white"/>
 <img src="https://img.shields.io/badge/Microsoft_365-D83B01?style=for-the-badge&logo=microsoft&logoColor=white"/>
 <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/SharePoint-0078D4?style=for-the-badge&logo=microsoftsharepoint&logoColor=white"/>
 </p>
 
 ---
@@ -268,7 +272,7 @@ Clustering & Segmentation
 
 - 📊 Analyzed **10,000+ healthcare records** using SQL and Python to identify trends, anomalies, and data inconsistencies
 - 🤖 Built **machine learning models** to detect bias, improving fairness metrics by **15–25%** across demographic groups
-- 📈 Developed **5+ interactive dashboards** using AWS QuickSight, Power BI, and Tableau — reducing reporting time by **40%**
+- 📈 Developed **5+ interactive dashboards** using QuickSight, Power BI, and Tableau — reducing reporting time by **40%**
 - 🧹 Performed comprehensive data cleaning, transformation, and validation to ensure high-quality datasets for decision-making
 - 🤝 Collaborated with cross-functional stakeholders to translate business requirements into data-driven insights
 
