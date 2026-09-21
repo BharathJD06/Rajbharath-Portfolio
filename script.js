@@ -889,18 +889,18 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
 
 // ── CERTIFICATE VIEWER MODAL ──
 (function initCertViewer() {
-  const modal     = document.getElementById('cert-viewer-modal');
-  const backdrop  = document.getElementById('cert-viewer-backdrop');
-  const closeBtn  = document.getElementById('cert-viewer-close');
-  const iframe    = document.getElementById('cert-iframe');
-  const titleEl   = document.getElementById('cert-viewer-title');
-  const dlBtn     = document.getElementById('cert-download-btn');
+  const modal      = document.getElementById('cert-viewer-modal');
+  const backdrop   = document.getElementById('cert-viewer-backdrop');
+  const closeBtn   = document.getElementById('cert-viewer-close');
+  const iframe     = document.getElementById('cert-iframe');
+  const titleEl    = document.getElementById('cert-viewer-title');
+  const dlBtn      = document.getElementById('cert-download-btn');
+  const openTabBtn = document.getElementById('cert-open-tab-btn');
 
-  if (!modal) return;
+  if (!modal || !iframe) return;
 
-  // Map each cert-foil-card's title to a human-friendly name
   function getCardTitle(card) {
-    const h4 = card.querySelector('h4');
+    const h4   = card.querySelector('h4');
     const corp = card.querySelector('.cert-corp');
     if (h4 && corp) return corp.textContent.trim() + ' — ' + h4.textContent.trim();
     if (h4) return h4.textContent.trim();
@@ -908,16 +908,14 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
   }
 
   function openCertModal(certPath, title) {
-    titleEl.textContent = title;
-    // <object> uses data= attribute; <embed> uses src=
-    iframe.setAttribute('data', certPath);
-    const embedEl = document.getElementById('cert-embed');
-    if (embedEl) embedEl.src = certPath;
-    // Update fallback "Open in New Tab" link
-    const fallbackLink = document.getElementById('cert-fallback-link');
-    if (fallbackLink) { fallbackLink.href = certPath; }
-    dlBtn.href = certPath;
-    dlBtn.download = certPath.split('/').pop();
+    titleEl.textContent  = title;
+    // Set iframe src directly — works for local file:// and HTTP servers
+    iframe.src           = certPath;
+    // "Open in Tab" always works regardless of browser PDF embedding support
+    if (openTabBtn) { openTabBtn.href = certPath; }
+    // Download button
+    dlBtn.href      = certPath;
+    dlBtn.download  = certPath.split('/').pop();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     playSynthSound('modal');
@@ -926,12 +924,8 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
   function closeCertModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    // Clear data after transition so object unloads
-    setTimeout(() => {
-      iframe.setAttribute('data', '');
-      const embedEl = document.getElementById('cert-embed');
-      if (embedEl) embedEl.src = '';
-    }, 350);
+    // Unload iframe after animation
+    setTimeout(() => { iframe.src = ''; }, 400);
   }
 
   // Click any cert card
@@ -942,9 +936,9 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
     });
   });
 
-  // Close controls
-  closeBtn.addEventListener('click', closeCertModal);
-  backdrop.addEventListener('click', closeCertModal);
+  // Close handlers
+  if (closeBtn)  closeBtn.addEventListener('click', closeCertModal);
+  if (backdrop)  backdrop.addEventListener('click', closeCertModal);
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeCertModal();
   });
