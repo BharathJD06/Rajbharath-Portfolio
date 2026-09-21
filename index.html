@@ -1514,7 +1514,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/British Airways Data Science.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">✈️</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/britishairways.com" alt="British Airways" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">✈️</span>
+            </div>
             <span class="cert-corp">BRITISH AIRWAYS</span>
             <h4>Data Science Virtual Experience</h4>
             <p>Customer Predictive Analytics · Flight Scraper Architecture · Feature Engineering</p>
@@ -1524,7 +1527,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/Citi Bank Quantitative Analysis.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">🏦</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/citi.com" alt="Citi Bank" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">🏦</span>
+            </div>
             <span class="cert-corp">CITI BANK</span>
             <h4>Quantitative Analysis Program</h4>
             <p>Quantitative Financial Modeling · Risk Metrics · Asset Portfolio Optimization</p>
@@ -1534,7 +1540,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/Deloitte Internship.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">🔷</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">🔷</span>
+            </div>
             <span class="cert-corp">DELOITTE</span>
             <h4>Business Analysis Virtual Program</h4>
             <p>Enterprise Strategy Formulation · Cloud Architecture · Systems Modernization</p>
@@ -1544,7 +1553,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/JP Morgan Chase &amp; Co.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">💎</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/jpmorganchase.com" alt="JP Morgan Chase" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">💎</span>
+            </div>
             <span class="cert-corp">JP MORGAN CHASE &amp; CO.</span>
             <h4>Data Analytics Virtual Experience</h4>
             <p>Financial Telemetry · Portfolio Analytics · Business Storytelling for Leadership</p>
@@ -1554,7 +1566,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Gen AI Powered Data Analytics.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">🔶</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/tata.com" alt="Tata Group" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">🔶</span>
+            </div>
             <span class="cert-corp">TATA GROUP</span>
             <h4>Gen AI Powered Data Analytics</h4>
             <p>Generative Artificial Intelligence · Prompt Engineering · Autonomous Synthesis</p>
@@ -1564,7 +1579,10 @@
 
           <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Internship Certificate.pdf">
             <div class="foil-glare"></div>
-            <div class="cert-icon-box">🌐</div>
+            <div class="cert-icon-box">
+              <img src="https://logo.clearbit.com/tata.com" alt="Tata Group" class="cert-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="cert-logo-fallback" style="display:none">🌐</span>
+            </div>
             <span class="cert-corp">TATA GROUP</span>
             <h4>Data Visualization Internship</h4>
             <p>Executive Dashboard UX · Power BI KPIs · Strategic Enterprise Forecasting</p>
@@ -1915,7 +1933,14 @@
         </div>
       </div>
       <div class="cert-viewer-body">
-        <iframe id="cert-iframe" class="cert-iframe" src="" title="Certificate PDF" frameborder="0"></iframe>
+        <object id="cert-iframe" class="cert-iframe" data="" type="application/pdf" title="Certificate PDF">
+          <embed id="cert-embed" src="" type="application/pdf" class="cert-iframe">
+            <div class="cert-fallback-msg">
+              <p>Your browser cannot display this PDF inline.</p>
+              <a id="cert-fallback-link" href="#" target="_blank" class="cert-download-btn" style="margin-top:12px;display:inline-block;">⬆ Open PDF in New Tab</a>
+            </div>
+          </embed>
+        </object>
       </div>
     </div>
   </div>

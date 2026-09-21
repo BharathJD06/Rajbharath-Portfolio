@@ -909,9 +909,14 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
 
   function openCertModal(certPath, title) {
     titleEl.textContent = title;
-    iframe.src = certPath;
+    // <object> uses data= attribute; <embed> uses src=
+    iframe.setAttribute('data', certPath);
+    const embedEl = document.getElementById('cert-embed');
+    if (embedEl) embedEl.src = certPath;
+    // Update fallback "Open in New Tab" link
+    const fallbackLink = document.getElementById('cert-fallback-link');
+    if (fallbackLink) { fallbackLink.href = certPath; }
     dlBtn.href = certPath;
-    // Use filename (without leading path) as download name
     dlBtn.download = certPath.split('/').pop();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -921,8 +926,12 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
   function closeCertModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    // Clear src after transition so iframe unloads
-    setTimeout(() => { iframe.src = ''; }, 350);
+    // Clear data after transition so object unloads
+    setTimeout(() => {
+      iframe.setAttribute('data', '');
+      const embedEl = document.getElementById('cert-embed');
+      if (embedEl) embedEl.src = '';
+    }, 350);
   }
 
   // Click any cert card
