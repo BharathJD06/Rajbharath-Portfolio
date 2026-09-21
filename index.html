@@ -1516,10 +1516,17 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/British Airways Data Science.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#075AAA"/>
-                <text x="28" y="24" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#ffffff">BRITISH</text>
-                <text x="28" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#eb2226">AIRWAYS</text>
+              <!-- British Airways: wordmark + speedmark (red+blue ribbons) -->
+              <svg class="cert-logo-svg" viewBox="0 0 260 88" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="88" rx="10" fill="#ffffff"/>
+                <!-- Red speedmark ribbon -->
+                <path d="M174 22 C184 15 198 14 218 22 C226 26 234 30 236 28 L232 20 C220 13 204 10 188 13 C178 15 170 19 164 24 Z" fill="#eb2226"/>
+                <!-- Blue speedmark ribbon (lower, with taper to right) -->
+                <path d="M170 31 C182 23 198 23 220 32 C230 37 238 42 238 46 L232 48 C224 44 212 38 196 33 C180 28 168 30 160 36 Z" fill="#4476ae"/>
+                <!-- Gradient highlight on blue ribbon tip -->
+                <path d="M228 38 C234 41 238 45 236 48 L232 48 C232 44 230 41 226 38 Z" fill="#6ba4d4"/>
+                <!-- BRITISH AIRWAYS serif wordmark -->
+                <text x="116" y="68" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="17" fill="#4476ae" letter-spacing="2">BRITISH AIRWAYS</text>
               </svg>
             </div>
             <span class="cert-corp">BRITISH AIRWAYS</span>
@@ -1533,10 +1540,15 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/Citi Bank Quantitative Analysis.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#ffffff"/>
-                <text x="28" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="20" fill="#003b8e">Citi</text>
-                <path d="M15 36 Q28 30 41 36" stroke="#ee1c25" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              <!-- Citibank: "citi" in blue + "bank" in blue, red arc over the i's -->
+              <svg class="cert-logo-svg" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="80" rx="10" fill="#ffffff"/>
+                <!-- Red arch over "iti" (positioned over the middle of wordmark) -->
+                <path d="M88 36 A28 28 0 0 1 144 36" stroke="#e31837" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <!-- "citi" in dark blue bold -->
+                <text x="20" y="62" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="34" fill="#003b8e">citi</text>
+                <!-- "bank" in dark blue, same weight -->
+                <text x="102" y="62" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="34" fill="#003b8e">bank</text>
               </svg>
             </div>
             <span class="cert-corp">CITI BANK</span>
@@ -1550,10 +1562,13 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/Deloitte Internship.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#ffffff"/>
-                <text x="7" y="33" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="#000000">deloitte</text>
-                <circle cx="49" cy="28" r="5" fill="#86bc25"/>
+              <!-- Deloitte: bold black "Deloitte" + green period dot -->
+              <svg class="cert-logo-svg" viewBox="0 0 220 72" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="72" rx="10" fill="#ffffff"/>
+                <!-- "Deloitte" bold black text -->
+                <text x="10" y="52" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="38" fill="#000000">Deloitte</text>
+                <!-- Green period dot (Deloitte's trademark) -->
+                <circle cx="202" cy="48" r="8" fill="#86bc25"/>
               </svg>
             </div>
             <span class="cert-corp">DELOITTE</span>
@@ -1567,10 +1582,28 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/JP Morgan Chase &amp; Co.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#003087"/>
-                <text x="28" y="24" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#ffffff">JP MORGAN</text>
-                <text x="28" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#ffffff">CHASE</text>
+              <!-- JPMorganChase: black wordmark + blue octagonal icon -->
+              <svg class="cert-logo-svg" viewBox="0 0 280 88" xmlns="http://www.w3.org/2000/svg">
+                <rect width="280" height="88" rx="10" fill="#ffffff"/>
+                <!-- Blue JP Morgan Chase interlocking octagonal icon (right side) -->
+                <!-- Outer octagon segments in blue -->
+                <g transform="translate(226,44)">
+                  <!-- Top-left segment -->
+                  <path d="M-18 -6 L-6 -18 L6 -18 L6 -6 Z" fill="#1170b8"/>
+                  <!-- Top-right segment -->
+                  <path d="M6 -18 L18 -6 L18 6 L6 6 Z" fill="#1170b8"/>
+                  <!-- Bottom-right segment -->
+                  <path d="M18 6 L6 18 L-6 18 L-6 6 Z" fill="#1170b8"/>
+                  <!-- Bottom-left segment -->
+                  <path d="M-6 18 L-18 6 L-18 -6 L-6 -6 Z" fill="#1170b8"/>
+                  <!-- Inner white gaps to create the segmented look -->
+                  <line x1="-18" y1="-6" x2="18" y2="6" stroke="#ffffff" stroke-width="2.5"/>
+                  <line x1="-6" y1="-18" x2="6" y2="18" stroke="#ffffff" stroke-width="2.5"/>
+                  <line x1="-6" y1="18" x2="6" y2="-18" stroke="#ffffff" stroke-width="2.5"/>
+                  <line x1="-18" y1="6" x2="18" y2="-6" stroke="#ffffff" stroke-width="2.5"/>
+                </g>
+                <!-- "JPMorganChase" black wordmark -->
+                <text x="14" y="56" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="22" fill="#000000">JPMorganChase</text>
               </svg>
             </div>
             <span class="cert-corp">JP MORGAN CHASE &amp; CO.</span>
@@ -1584,10 +1617,24 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Gen AI Powered Data Analytics.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#003087"/>
-                <ellipse cx="28" cy="28" rx="20" ry="12" stroke="#ffffff" stroke-width="2.5" fill="none"/>
-                <text x="28" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#ffffff">TATA</text>
+              <!-- Tata: blue oval with T-cross inside + TATA wordmark -->
+              <svg class="cert-logo-svg" viewBox="0 0 220 88" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="88" rx="10" fill="#ffffff"/>
+                <!-- Tata oval logo mark -->
+                <g transform="translate(44,44)">
+                  <!-- Outer blue oval -->
+                  <ellipse cx="0" cy="0" rx="38" ry="38" fill="#3354a5"/>
+                  <!-- White horizontal crossbar of the T -->
+                  <path d="M-30 -10 Q-16 -22 0 -22 Q16 -22 30 -10 L28 -6 Q14 -18 0 -18 Q-14 -18 -28 -6 Z" fill="#ffffff"/>
+                  <!-- White horizontal line divider across middle -->
+                  <rect x="-30" y="-3" width="60" height="4" rx="2" fill="#ffffff"/>
+                  <!-- Left leg of T going down -->
+                  <path d="M-14 -1 Q-20 8 -18 28 L-10 28 Q-12 8 -6 -1 Z" fill="#ffffff"/>
+                  <!-- Right leg of T going down -->
+                  <path d="M6 -1 Q12 8 10 28 L18 28 Q20 8 14 -1 Z" fill="#ffffff"/>
+                </g>
+                <!-- TATA wordmark -->
+                <text x="130" y="58" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="30" fill="#3354a5" letter-spacing="4">TATA</text>
               </svg>
             </div>
             <span class="cert-corp">TATA GROUP</span>
@@ -1601,10 +1648,17 @@
           <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Internship Certificate.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">
-              <svg class="cert-logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="56" height="56" rx="12" fill="#003087"/>
-                <ellipse cx="28" cy="28" rx="20" ry="12" stroke="#ffffff" stroke-width="2.5" fill="none"/>
-                <text x="28" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#ffffff">TATA</text>
+              <!-- Same Tata logo -->
+              <svg class="cert-logo-svg" viewBox="0 0 220 88" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="88" rx="10" fill="#ffffff"/>
+                <g transform="translate(44,44)">
+                  <ellipse cx="0" cy="0" rx="38" ry="38" fill="#3354a5"/>
+                  <path d="M-30 -10 Q-16 -22 0 -22 Q16 -22 30 -10 L28 -6 Q14 -18 0 -18 Q-14 -18 -28 -6 Z" fill="#ffffff"/>
+                  <rect x="-30" y="-3" width="60" height="4" rx="2" fill="#ffffff"/>
+                  <path d="M-14 -1 Q-20 8 -18 28 L-10 28 Q-12 8 -6 -1 Z" fill="#ffffff"/>
+                  <path d="M6 -1 Q12 8 10 28 L18 28 Q20 8 14 -1 Z" fill="#ffffff"/>
+                </g>
+                <text x="130" y="58" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="30" fill="#3354a5" letter-spacing="4">TATA</text>
               </svg>
             </div>
             <span class="cert-corp">TATA GROUP</span>
