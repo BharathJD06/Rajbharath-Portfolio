@@ -1512,58 +1512,64 @@
 
         <div class="certs-master-grid">
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/British Airways Data Science.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">✈️</div>
             <span class="cert-corp">BRITISH AIRWAYS</span>
             <h4>Data Science Virtual Experience</h4>
             <p>Customer Predictive Analytics · Flight Scraper Architecture · Feature Engineering</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/Citi Bank Quantitative Analysis.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">🏦</div>
             <span class="cert-corp">CITI BANK</span>
             <h4>Quantitative Analysis Program</h4>
             <p>Quantitative Financial Modeling · Risk Metrics · Asset Portfolio Optimization</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/Deloitte Internship.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">🔷</div>
             <span class="cert-corp">DELOITTE</span>
             <h4>Business Analysis Virtual Program</h4>
             <p>Enterprise Strategy Formulation · Cloud Architecture · Systems Modernization</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/JP Morgan Chase &amp; Co.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">💎</div>
-            <span class="cert-corp">JP MORGAN CHASE & CO.</span>
+            <span class="cert-corp">JP MORGAN CHASE &amp; CO.</span>
             <h4>Data Analytics Virtual Experience</h4>
             <p>Financial Telemetry · Portfolio Analytics · Business Storytelling for Leadership</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Gen AI Powered Data Analytics.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">🔶</div>
             <span class="cert-corp">TATA GROUP</span>
             <h4>Gen AI Powered Data Analytics</h4>
             <p>Generative Artificial Intelligence · Prompt Engineering · Autonomous Synthesis</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
-          <div class="cert-foil-card" data-tilt>
+          <div class="cert-foil-card" data-tilt data-cert="certifications/Tata Internship Certificate.pdf">
             <div class="foil-glare"></div>
             <div class="cert-icon-box">🌐</div>
             <span class="cert-corp">TATA GROUP</span>
             <h4>Data Visualization Internship</h4>
             <p>Executive Dashboard UX · Power BI KPIs · Strategic Enterprise Forecasting</p>
             <div class="cert-footer-badge">Forage Certified</div>
+            <div class="cert-view-hint">📄 View Certificate →</div>
           </div>
 
         </div>
@@ -1890,6 +1896,26 @@
       <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
       <div class="modal-body" id="modal-body">
         <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE VIEWER MODAL -->
+  <div class="cert-viewer-modal" id="cert-viewer-modal" role="dialog" aria-modal="true" aria-label="Certificate Viewer">
+    <div class="cert-viewer-backdrop" id="cert-viewer-backdrop"></div>
+    <div class="cert-viewer-dialog">
+      <div class="cert-viewer-header">
+        <div class="cert-viewer-title-group">
+          <span class="cert-viewer-tag">📜 VERIFIED CERTIFICATE</span>
+          <h3 class="cert-viewer-title" id="cert-viewer-title">Certificate</h3>
+        </div>
+        <div class="cert-viewer-actions">
+          <a class="cert-download-btn" id="cert-download-btn" href="#" download target="_blank" title="Download PDF">⬇ Download</a>
+          <button class="cert-viewer-close" id="cert-viewer-close" aria-label="Close certificate viewer">✕</button>
+        </div>
+      </div>
+      <div class="cert-viewer-body">
+        <iframe id="cert-iframe" class="cert-iframe" src="" title="Certificate PDF" frameborder="0"></iframe>
       </div>
     </div>
   </div>

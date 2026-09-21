@@ -886,3 +886,57 @@ into clean, actionable business clarity. Based in Niagara Falls, ON, Canada.
     }, 1200);
   });
 })();
+
+// ── CERTIFICATE VIEWER MODAL ──
+(function initCertViewer() {
+  const modal     = document.getElementById('cert-viewer-modal');
+  const backdrop  = document.getElementById('cert-viewer-backdrop');
+  const closeBtn  = document.getElementById('cert-viewer-close');
+  const iframe    = document.getElementById('cert-iframe');
+  const titleEl   = document.getElementById('cert-viewer-title');
+  const dlBtn     = document.getElementById('cert-download-btn');
+
+  if (!modal) return;
+
+  // Map each cert-foil-card's title to a human-friendly name
+  function getCardTitle(card) {
+    const h4 = card.querySelector('h4');
+    const corp = card.querySelector('.cert-corp');
+    if (h4 && corp) return corp.textContent.trim() + ' — ' + h4.textContent.trim();
+    if (h4) return h4.textContent.trim();
+    return 'Certificate';
+  }
+
+  function openCertModal(certPath, title) {
+    titleEl.textContent = title;
+    iframe.src = certPath;
+    dlBtn.href = certPath;
+    // Use filename (without leading path) as download name
+    dlBtn.download = certPath.split('/').pop();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    playSynthSound('modal');
+  }
+
+  function closeCertModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Clear src after transition so iframe unloads
+    setTimeout(() => { iframe.src = ''; }, 350);
+  }
+
+  // Click any cert card
+  document.querySelectorAll('.cert-foil-card[data-cert]').forEach(card => {
+    card.addEventListener('click', () => {
+      const certPath = card.getAttribute('data-cert');
+      openCertModal(certPath, getCardTitle(card));
+    });
+  });
+
+  // Close controls
+  closeBtn.addEventListener('click', closeCertModal);
+  backdrop.addEventListener('click', closeCertModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeCertModal();
+  });
+})();
